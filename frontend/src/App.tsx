@@ -607,7 +607,7 @@ const Header = ({ onOpenProfile, onOpenGlobe, isConnected, onToggleSidebar }: { 
           <div className="telemetry-item desktop-only">
             <Bell size={14} style={{ color: 'var(--accent-red)' }} />
             <span style={{ fontSize: '0.6rem', color: 'var(--text-dim)', marginRight: '4px' }}>ALERTS:</span>
-            <span>{stats?.totalAlerts || 0}</span>
+            <span>{alerts.length}</span>
           </div>
         </div>
 
@@ -621,7 +621,7 @@ const Header = ({ onOpenProfile, onOpenGlobe, isConnected, onToggleSidebar }: { 
           </button>
           <button className="control-btn" onClick={() => navigate('/alerts')} title="THREAT_ALERTS">
             <Bell size={16} />
-            {(stats?.totalAlerts || 0) > 0 && <span className="header-badge">{stats.totalAlerts}</span>}
+            {alerts.length > 0 && <span className="header-badge">{alerts.length}</span>}
           </button>
           
           <div className="header-divider desktop-only" style={{ margin: '0 0.25rem', opacity: 0.2 }}></div>
