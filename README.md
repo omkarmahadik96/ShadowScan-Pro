@@ -24,38 +24,38 @@
   <tr>
     <td align="center">
       <img src="./screenshots/dashboard.png" width="400px" alt="Tactical Dashboard" /><br />
-      <sub><b>Tactical Dashboard: Real-time Telemetry</b></sub>
+      <sub><b>Command Center v4.2: Real-time Intelligence Telemetry</b></sub>
     </td>
     <td align="center">
       <img src="./screenshots/alerts.png" width="400px" alt="Threat Alerts" /><br />
-      <sub><b>Intelligence Feed: Critical Alerts</b></sub>
+      <sub><b>Automated Surveillance Feed: Critical Threat Correlation</b></sub>
     </td>
   </tr>
   <tr>
     <td align="center">
       <img src="./screenshots/watchlist.png" width="400px" alt="Watchlist Manager" /><br />
-      <sub><b>Watchlist: Target Surveillance</b></sub>
+      <sub><b>Active Target Lattic: Continuous Domain & Email Monitoring</b></sub>
     </td>
     <td align="center">
       <img src="./screenshots/reports.png" width="400px" alt="Forensic Reporting" /><br />
-      <sub><b>Reporting: Exportable Dossiers</b></sub>
+      <sub><b>Forensic Dossier Engine: High-Fidelity Professional Exports</b></sub>
     </td>
   </tr>
 </table>
 
 <p align="center">
   <img src="./screenshots/watchlist_modal.png" width="600px" alt="Premium Modal UI" /><br />
-  <sub><b>Unified Design System: Centered Neon Modals & Tactical HUD</b></sub>
+  <sub><b>Tactical HUD: Hardened Mobile-Responsive Command Architecture</b></sub>
 </p>
 
 ---
 
 ## 🌌 Project Overview
 
-**ShadowScan Pro** is a production-grade, high-fidelity intelligence workstation designed for real-time dark web monitoring, threat correlation, and forensic reporting. Built with a **"Cyber-Noir"** aesthetic, it combines advanced data visualization with a hardened backend to simulate a professional tactical operations center.
+**ShadowScan Pro** is a high-performance intelligence workstation engineered for real-time threat discovery and forensic investigation. Designed for the modern security analyst, it features a **"Cyber-Noir"** tactical HUD, a hardened Node.js backend, and a resilient real-time telemetry stream.
 
-### 🎯 Core Mission
-To provide security analysts with a singular, unified interface for tracking data breaches, monitoring adversarial groups, and generating legal-grade forensic evidence.
+> [!NOTE]
+> For a detailed technical analysis, architectural decisions, and engineering metrics, see the [Professional Dossier](./PROFESSIONAL_DOSSIER.md).
 
 ---
 
