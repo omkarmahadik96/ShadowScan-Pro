@@ -1,0 +1,75 @@
+// shadowscan-pro/backend/prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String   @id @default(uuid())
+  email         String   @unique
+  name          String?
+  createdAt     DateTime @default(now())
+}
+
+model WatchlistItem {
+  id         String   @id @default(uuid())
+  type       String   // email, domain, keyword, ip, etc.
+  value      String
+  label      String?
+  priority   String   @default("LOW")
+  isActive   Boolean  @default(true)
+  createdAt  DateTime @default(now())
+}
+
+model Finding {
+  id               String   @id @default(uuid())
+  source           String
+  sourceUrl        String?
+  dataType         String
+  severity         String
+  severityScore    Int?
+  matchedValue     String?
+  rawData          Json?
+  normalizedData   Json?
+  status           String   @default("new")
+  discoveredAt     DateTime @default(now())
+}
+
+model Alert {
+  id             String   @id @default(uuid())
+  severity       String
+  title          String
+  description    String
+  source         String?
+  matchedValue   String?
+  acknowledgedAt DateTime?
+  createdAt      DateTime @default(now())
+}
+
+model Adversary {
+  id          String   @id @default(uuid())
+  name        String
+  aliases     String[]
+  origin      String?
+  active      String?
+  motivation  String?
+  targets     String[]
+  severity    String
+  status      String
+  lastSeen    DateTime @default(now())
+}
+
+model CountermeasureLog {
+  id          String   @id @default(uuid())
+  actorId     String
+  actorName   String
+  logs        String[]
+  status      String
+  timestamp   DateTime @default(now())
+}
+

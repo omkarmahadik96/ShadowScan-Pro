@@ -1,0 +1,36 @@
+# Dependency Directories
+node_modules/
+jspm_packages/
+.npm/
+
+# Build Outputs
+dist/
+build/
+*.out
+*.log
+
+# Environment Variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Tactical Data (In-memory storage bypass)
+backend/data/*.json
+!backend/data/template.json
+
+# OS Files
+Thumbs.db
+desktop.ini
+
+# Deployment
+.vercel
+.netlify

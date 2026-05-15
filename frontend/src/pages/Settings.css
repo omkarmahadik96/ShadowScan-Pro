@@ -1,0 +1,467 @@
+:root {
+  --tactical-bg: #0a0a0f;
+  --tactical-glass: rgba(15, 15, 20, 0.95);
+  --accent-cyan: #00f2ff;
+  --accent-cyan-dim: rgba(0, 242, 255, 0.1);
+  --border-cyan: rgba(0, 242, 255, 0.2);
+  --text-primary: #ffffff;
+  --text-secondary: #8b8b92;
+}
+
+.settings-container {
+  height: calc(100vh - 80px);
+  padding: 2rem;
+  background: var(--tactical-bg);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border-cyan);
+  padding-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Changed from flex-end to center for perfect vertical alignment */
+}
+
+.btn-primary.success {
+  background: #00ff88;
+  color: #000;
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+}
+
+.settings-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 2rem;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Sidebar Navigation - Fixed */
+.settings-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: var(--tactical-glass);
+  border: 1px solid var(--border-cyan);
+  border-radius: 12px;
+  padding: 1rem;
+  height: fit-content;
+}
+
+.settings-nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.settings-nav-item:hover {
+  background: var(--accent-cyan-dim);
+  color: var(--accent-cyan);
+}
+
+.settings-nav-item.active {
+  background: var(--accent-cyan-dim);
+  color: var(--accent-cyan);
+  border-color: var(--border-cyan);
+  box-shadow: 0 0 15px rgba(0, 242, 255, 0.1);
+}
+
+/* Content Area - Scrollable */
+.settings-content-wrapper {
+  overflow-y: auto;
+  padding-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Surgical Content Cards */
+.settings-section {
+  background: var(--tactical-glass);
+  border: 1px solid var(--border-cyan);
+  border-radius: 12px;
+  padding: 2rem;
+  position: relative;
+}
+
+.settings-section h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 3px;
+  color: var(--accent-cyan);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.section-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  background: var(--accent-cyan-dim);
+  color: var(--accent-cyan);
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--border-cyan);
+}
+
+/* Aligned Form Elements */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.settings-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.settings-input-group label {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+}
+
+.settings-input {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--border-cyan);
+  border-radius: 6px;
+  padding: 0.8rem 1rem;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+
+.settings-input:focus {
+  border-color: var(--accent-cyan);
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 242, 255, 0.1);
+}
+
+/* Tactical Toggles */
+.toggle-switch {
+  width: 44px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-cyan);
+  border-radius: 12px;
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.toggle-switch.active {
+  background: var(--accent-cyan-dim);
+}
+
+.toggle-knob {
+  width: 16px;
+  height: 16px;
+  background: var(--text-secondary);
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: all 0.2s ease;
+}
+
+.toggle-switch.active .toggle-knob {
+  left: 23px;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 10px var(--accent-cyan);
+}
+
+/* Action Rows */
+.api-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-cyan);
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+}
+
+/* User & Stats Grid */
+.user-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-cyan);
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+}
+
+.persistence-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.p-stat-card {
+  background: var(--accent-cyan-dim);
+  border: 1px solid var(--border-cyan);
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.p-stat-value {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.2rem;
+  color: var(--accent-cyan);
+}
+
+/* Buttons - Surgical */
+.btn-primary {
+  background: var(--accent-cyan);
+  color: #000;
+  font-weight: 700;
+  font-family: 'Orbitron', sans-serif;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+}
+
+.btn-primary:hover {
+  background: white;
+  box-shadow: 0 0 20px var(--accent-cyan);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-cyan);
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-outline:hover {
+  color: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+}
+
+/* Overlays */
+.generation-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.glass {
+  background: var(--tactical-bg);
+  border: 1px solid var(--accent-cyan);
+  box-shadow: 0 0 30px rgba(0, 242, 255, 0.2);
+  border-radius: 12px;
+}
+
+/* Scrollbar */
+.settings-content-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+.settings-content-wrapper::-webkit-scrollbar-thumb {
+  background: var(--border-cyan);
+  border-radius: 10px;
+}
+
+.btn-danger-purge {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+  padding: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  transition: all 0.2s;
+}
+
+.btn-danger-purge:hover {
+  background: #ef4444;
+  color: white;
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+}
+
+/* --- TACTICAL_MOBILE_RECON_v1.0 --- */
+@media (max-width: 992px) {
+  .settings-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem;
+    overflow: visible;
+  }
+
+  .settings-nav {
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    padding: 0.75rem !important;
+    gap: 0.75rem !important;
+    border-radius: 12px;
+    scrollbar-width: none;
+    background: rgba(10, 10, 15, 0.9);
+    border: 1px solid var(--border-cyan);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    margin-bottom: 1rem;
+  }
+
+  .settings-nav-item {
+    white-space: nowrap;
+    width: auto !important;
+    min-width: fit-content;
+    padding: 0.8rem 1.5rem !important;
+    font-size: 0.75rem !important; /* Increased for readability */
+    flex-shrink: 0;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  }
+
+  .settings-container {
+    height: auto !important;
+    min-height: calc(100vh - 60px);
+    overflow-y: visible !important;
+    padding: 1rem !important;
+    display: block !important;
+  }
+
+  .settings-content-wrapper {
+    overflow-y: visible !important;
+    padding-right: 0 !important;
+    padding-bottom: 5rem !important; /* Extra space for mobile buttons */
+    flex: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    text-align: left !important;
+    gap: 1rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .page-header div {
+    min-width: unset !important;
+  }
+
+  .page-header h1 {
+    font-size: 1.25rem !important; /* Slightly larger but controlled */
+    letter-spacing: 2px !important;
+    color: var(--accent-cyan);
+    text-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+  }
+
+  .page-header p {
+    font-size: 0.7rem !important;
+    line-height: 1.4;
+    margin-top: 0.4rem !important;
+  }
+
+  .btn-primary {
+    max-width: 100% !important;
+    padding: 1rem !important;
+    font-size: 0.75rem !important;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .persistence-stats {
+    grid-template-columns: 1fr !important;
+  }
+
+  .api-item {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1rem !important;
+  }
+
+  .api-item > div:not(.toggle-switch) {
+    width: 100% !important;
+    text-align: left !important;
+  }
+
+  .user-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1rem !important;
+  }
+
+  .user-row > div {
+    width: 100% !important;
+    justify-content: space-between !important;
+  }
+
+  .settings-section {
+    padding: 1.25rem !important;
+  }
+
+  .settings-section h3 {
+    font-size: 0.85rem !important;
+    flex-wrap: wrap !important;
+  }
+}
+
+/* Range Input Mobile Hardening */
+@media (max-width: 768px) {
+  input[type="range"] {
+ height: 32px !important;
+ margin: 0.5rem 0 !important;
+ }
+
+ .settings-input-group label {
+ flex-direction: column !important;
+ align-items: flex-start !important;
+ gap: 0.25rem !important;
+ margin-bottom: 0.5rem !important;
+ }
+}

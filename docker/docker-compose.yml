@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: shadowscan
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: shadowscan
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.10.2
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+    ports:
+      - "9200:9200"
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: ../docker/Dockerfile
+    environment:
+      DATABASE_URL: postgresql://shadowscan:password@postgres:5432/shadowscan
+      REDIS_URL: redis://redis:6379
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+    depends_on:
+      - postgres
+      - redis
+      - elasticsearch
+    ports:
+      - "3001:3001"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: ../docker/Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+  tor:
+    image: pickapp/tor-proxy:latest
+    ports:
+      - "9050:9050"
+    restart: always
+
+volumes:
+  postgres_data:
